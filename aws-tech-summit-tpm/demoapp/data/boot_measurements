@@ -1,0 +1,5 @@
+07 256ab7564aa9364c49594f54aef5df509b035257 ima-ng sha1:6630802499fbacc9be902ce7a218c4b534f2cb43 /initrd.img
+07 a85e0472b2e865b33459fb2eee102c72c81a6c64 ima-ng sha1:3eb40dcbdacb039a9ceab8414889205c82f20b8c /sbin/init
+07 00741bb7cdd2fc311f5a300059c496393f9dd69c ima-ng sha1:c572001d475c7d0d93a1a20113152cb55f5ec343 /lib/ld-linux.so.2
+07 966ea100d84aec0cb4ff0df4a955a3178a82b6cd ima-ng sha1:6e9829b08ac3eacab5191719cc6507bbe69ccf33 /lib/i386-linux-gnu/libx86.so.1
+07 67e76f4ea5b172a6dc3ff45c25cc2ca40d217be1 ima-ng sha1:1b706319b9d0224bb7ceb699d65bb29bf933b7cd /lib/i386-linux-gnu/libnss_compat.so.2
