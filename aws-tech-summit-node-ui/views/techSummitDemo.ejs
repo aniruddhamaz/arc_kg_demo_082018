@@ -1,0 +1,96 @@
+<div id="title" style="background-color:DodgerBlue">
+
+
+	<div id="stats" style="float:left;width: 10em">
+		<img "align:left" src="views/aws_logo.png" />
+	</div>
+	<div  id="title_text" style="float:left;width: 60%">
+		<table align=center>
+		<tr>
+			<td>
+					<h2 align=center style="">Chip to Cloud Security</h2>
+			</td>
+
+		</tr>
+		<tr>
+			<td>
+					<h3 align=center style="">APJC Tech Summit 2018</h3>
+			</td>
+
+		</tr>
+		</table>
+	</div>
+	<div id="stats">
+		<img "align:right" src="views/aws_logo.png" />	
+	</div>
+</div>
+<br/>
+<div style="display:block;">
+	<p>In this example, we have created a header, two columns/boxes and a footer. On smaller screens, the columns will stack on top of each other.</p>
+
+	<p>Resize the browser window to see the responsive effect (you will learn more about this in our next chapter - HTML Responsive.)</p>
+
+</div>
+
+<header>
+  <h2 id="h2" >Cities</h2>
+</header>
+
+<section>
+  <nav>
+    <ul>
+      <li><a href="#">PCR Measurements</a></li>
+      <li><a href="#">AWS IoT Device Defender</a></li>
+    </ul>
+  </nav>
+  
+  <article>
+    <h1>London</h1>
+    <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+  	<p> <%= pcr %> </p>
+  	<div id="content" style="background-color:Yellow;">
+  		<div id="stats" style="float:left;width: 10em">
+  			Network Stats
+  		</div>
+  		<div id="connections" style="float:left;width: 10em">
+  			Connections
+  		</div>
+  		<div id="ports" style="float:left;width: 10em">
+  			Ports
+  		</div>	
+  	</div>
+  	<div id="deviceIntegrity">
+  		<div id="pcrValues" style="float:left;width: 10em">
+  			<table>
+  				<tr> 
+  					<td> Measurement Data1 <%= pcr.pcrMeasurementData.runtime_values %>  </td>
+  				</tr>
+  				
+				<tr> 
+  				
+  				</tr>
+				<tr> 
+  				
+  				</tr>
+
+  			</table>
+  		</div>
+  		<div id="imaValues" style="float:left;width: 10em">
+  			IMA Values
+  		</div>
+  		<div id="integrityStatus" style="float:left;width: 10em">
+  			IntegrityStatus
+  		</div>	  	
+  	</div> 
+  	<p> Counter is <%= counter %> </p>
+  </article>
+</section>
+
+<div id="footer" style="background-color:Tomato;">
+  <p align="center">APJC Tech Summit 2018 Demo </p>
+  <p align="center">Contact information: <a href="mailto:chitreji@example.com">
+  Aniruddh Chitre</a>.<a href="mailto:chitreji@example.com">
+  Krishnan Ganapathy</a></p>
+</div>
+

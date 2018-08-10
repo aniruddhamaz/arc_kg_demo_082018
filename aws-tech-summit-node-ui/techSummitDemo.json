@@ -1,0 +1,27 @@
+{
+"pcrMeasurementData" : {
+	"runtime_values" : {
+		"pcr0" : "b5a166c10d153b7cc3e5b4f1eab1f71672b7c524",
+		"pcr1" : "e09e048c48301268ff38645f4c006137e42951d0",
+		"pcr2" : "0f8b3432535d5eab912ad3ba744507e35e3617c1",
+		"pcr3" : "747acb096b906392a62734916e0bb39cef540931",
+		"pcr4" : "326045fc3d74d8c8b23ac8ec0a4d03fdacd9618a",
+		"pcr5" : "",
+		"pcr6" : "",
+		"pcr7" : "",
+		"pcr8" : ""
+	},
+	"measured_values" : {
+		"pcr0" : "b5a166c10d153b7cc3e5b4f1eab1f71672b7c524",
+		"pcr1" : "e09e048c48301268ff38645f4c006137e42951d0",
+		"pcr2" : "0f8b3432535d5eab912ad3ba744507e35e3617c1",
+		"pcr3" : "747acb096b906392a62734916e0bb39cef540931",
+		"pcr4" : "326045fc3d74d8c8b23ac8ec0a4d03fdacd9618a",
+		"pcr5" : "",
+		"pcr6" : "",
+		"pcr7" : "",
+		"pcr8" : ""	
+	},
+	"device_integrity" : "VIOLATED"
+	}
+}
