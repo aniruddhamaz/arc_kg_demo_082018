@@ -1,3 +1,4 @@
+
 import hashlib
 import subprocess
 
@@ -12,13 +13,24 @@ DATA_DIR          = DEMOAPP_DIR + "/data"
 
 BOOT_PCR		  = 7
 
-MEASUREMENT_FILES = [
+MEASUREMENT_FILES_VM = [
 	"/initrd.img", 
 	"/sbin/init", 
 	"/lib/ld-linux.so.2", 
 	"/lib/i386-linux-gnu/libx86.so.1", 
 	"/lib/i386-linux-gnu/libnss_compat.so.2"
 	]
+
+MEASUREMENT_FILES_PI = [
+	"/sbin/init",
+	"/lib/ld-linux.so.3",
+	"/lib/ld-linux-armhf.so.3",
+	"/lib/libnih-dbus.so.1",
+	"/lib/systemd/systemd",
+	"/lib/libnih.so.1"
+]
+
+MEASUREMENT_FILES = MEASUREMENT_FILES_PI
 
 # ----------------------------------------------------------------------
 # Gets the files SHA-1 digest

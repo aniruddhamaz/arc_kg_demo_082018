@@ -69,7 +69,7 @@ static TPM_RC TSS_SetEncryptSessions(TSS_CONTEXT *tssContext, const char *value)
 
 /* tracing is global to avoid passing the context into every function call */
 int tssVerbose = TRUE;		/* initial value so TSS_Properties_Init errors emit message */
-int tssVverbose = TRUE;
+int tssVverbose = FALSE;
 
 /* This is a total hack to ensure that the global verbose flags are only set once.  It's used by the
    two entry points to the TSS, TSS_Create() and TSS_SetProperty() */
@@ -79,7 +79,7 @@ int tssFirstCall = TRUE;
 /* defaults for global settings */
 
 #ifndef TPM_TRACE_LEVEL_DEFAULT 	
-#define TPM_TRACE_LEVEL_DEFAULT 	"5"
+#define TPM_TRACE_LEVEL_DEFAULT 	"0"
 #endif
 
 #ifndef TPM_COMMAND_PORT_DEFAULT

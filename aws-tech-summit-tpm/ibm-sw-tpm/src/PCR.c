@@ -70,7 +70,6 @@
    allocated whether the PCR is implemented or not. */
 /* 8.7.2 Includes, Defines, and Data Definitions */
 #define PCR_C
-#include <stdio.h>
 #include "Tpm.h"
 /* The initial value of PCR attributes.  The value of these fields should be consistent with PC
    Client specification In this implementation, we assume the total number of implemented PCR is
@@ -695,7 +694,6 @@ PCRExtend(
     UINT16               pcrSize;
     pcrData = GetPcrPointer(hash, handle - PCR_FIRST);
     // Extend PCR if it is allocated
-    
     if(pcrData != NULL)
 	{
 	    pcrSize = CryptHashGetDigestSize(hash);
