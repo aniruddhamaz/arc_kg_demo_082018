@@ -19,6 +19,11 @@ from metrics import Metrics
 import argparse
 from time import sleep
 
+# KG - Adding constants to control location of files and index of PCRs
+BASE_MEASUREMENT_DIR = "/home/pi/git-repo/arc_kg_demo_082018/aws-tech-summit-tpm/"
+RUNTIME_MEASURE_FILE = BASE_MEASUREMENT_DIR + "demoapp/data/runtime_measurements"
+RUNTIME_PCR_FILE = BASE_MEASUREMENT_DIR + "demoapp/data/runtime_pcr"
+RUNTIME_PCR_INDEX = 10
 
 class Collector(object):
     """Collector
@@ -73,20 +78,21 @@ class Collector(object):
     # KG - Adding PCR measurement to the metrics
     def pcr_measurement(self, metrics):
         print ("adding pcr measurement")
-        ima = open('ima_runtime_measurements','r')
-        tpm = open('tpm_runtime_measurements','r')
+        #KG - Runtime measurement in IMA format
+        ima = open(RUNTIME_MEASURE_FILE,'r')
+        #KG - Runtime measurements obtained from PCR
+        tpm = open(RUNTIME_PCR_FILE,'r')
         pcr_ima_dictionary = {}
         pcr_tpm_dictionary = {}
         violation = "" 
-        KERNEL_PCR_INDEX = 10
-        
+       
         measured_values_dictionary = {}
 
         i=0
         for line in ima:
             print (line)
             lineTokens = line.split()
-            pcr_ima_dictionary ["pcr"+str(i)] = lineTokens[3]
+            pcr_ima_dictionary ["pcr"+str(RUNTIME_PCR_INDEX)] = lineTokens[1]
             i=i+1
         
         i=0
@@ -100,10 +106,10 @@ class Collector(object):
         measured_values_dictionary ["pcr_runtime_value"] =  pcr_tpm_dictionary
         measured_values_dictionary ["device_integrity"] = "NO_VIOLATION"
         
-        if (len(pcr_ima_dictionary) <10 or len(pcr_ima_dictionary) <10):
+        if (len(pcr_tpm_dictionary) <RUNTIME_PCR_INDEX):
             print "The size of PCR is less than expected. Throwing a violation!!"
             measured_values_dictionary ["device_integrity"] = "VIOLATION"
-        elif (pcr_ima_dictionary["pcr"+str(KERNEL_PCR_INDEX-1)] != pcr_tpm_dictionary["pcr"+str(KERNEL_PCR_INDEX-1)]):
+        elif (pcr_ima_dictionary["pcr"+str(RUNTIME_PCR_INDEX)] != pcr_tpm_dictionary["pcr"+str(RUNTIME_PCR_INDEX)]):
             measured_values_dictionary ["device_integrity"] = "VIOLATION"
                  
         metrics.add_pcr_measurement(measured_values_dictionary)
