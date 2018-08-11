@@ -33,6 +33,19 @@ MEASUREMENT_FILES_PI = [
 
 MEASUREMENT_FILES = MEASUREMENT_FILES_PI
 
+PRE_OS_LOAD_FILES_PI = [
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/bios",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/bios.conf",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/optionROM",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/optionROM.conf",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/mbr",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/mbr.conf",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/libpowerup.so.1",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/libpowerup.so.2",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/libexecdsk.so",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/libsyscore.so"
+]
+
 # ----------------------------------------------------------------------
 # Gets the files SHA-1 digest
 # ----------------------------------------------------------------------
