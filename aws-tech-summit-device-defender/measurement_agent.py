@@ -108,17 +108,18 @@ def parse_args():
 
 
 def custom_callback(self, userdata, message):
-    print("Received a new message on Device Defender: ")
-    print(message.payload)
-    print("from topic: ")
-    print(message.topic)
+    #print("Received a new message on Device Defender: ")
+    #print(message.payload)
+    #print("from topic: ")
+    #print(message.topic)
     
-    if (message.topic == "ganapatk/things/MyRaspberryPi/defender/metrics/json"):
-        payload_dict = json.loads (message.payload)
-        print ("Device Defender Message Payload : " + str(payload_dict) );
-        print ("Device Defender Message Payload Metrics : " + str(payload_dict['metrics']['pcrMeasurementData']['device_integrity']));
+    #if (message.topic == "ganapatk/things/MyRaspberryPi/defender/metrics/json"):
+        #payload_dict = json.loads (message.payload)
+        #print ("Device Defender Message Payload : " + str(payload_dict) );
+        #print ("Device Defender Message Payload Metrics : " + str(payload_dict['metrics']['pcrMeasurementData']['device_integrity']));
     
-    print("--------------\n\n")
+    #print("--------------\n\n")
+    return
     
 if __name__ == '__main__':
     # Read in command-line parameters
@@ -135,8 +136,8 @@ if __name__ == '__main__':
         topic_kg = "ganapatk/things/MyRaspberryPi/defender/metrics/json"
 
         # Subscribe to the accepted/rejected topics to indicate status of published metrics reports
-        iot_client.subscribe(topic + "/accepted", custom_callback)
-        iot_client.subscribe(topic + "/rejected", custom_callback)
+        #iot_client.subscribe(topic + "/accepted", custom_callback)
+        #iot_client.subscribe(topic + "/rejected", custom_callback)
         # Subscribing to the custom topic to receive device defender related messages
         iot_client.subscribe(topic_kg, custom_callback)
 

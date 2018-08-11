@@ -11,7 +11,7 @@ TPM_TSS_UTILS_DIR = TPM_TSS_BASE_DIR + "/utils"
 DEMOAPP_DIR		  = TPM_DIR + "/demoapp"
 DATA_DIR          = DEMOAPP_DIR + "/data"
 
-BOOT_PCR		  = 7
+BOOT_PCR		  = 10
 
 MEASUREMENT_FILES_VM = [
 	"/initrd.img", 
@@ -27,7 +27,8 @@ MEASUREMENT_FILES_PI = [
 	"/lib/ld-linux-armhf.so.3",
 	"/lib/libnih-dbus.so.1",
 	"/lib/systemd/systemd",
-	"/lib/libnih.so.1"
+	"/lib/libnih.so.1",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/app/app.conf"
 ]
 
 MEASUREMENT_FILES = MEASUREMENT_FILES_PI

@@ -1,6 +1,7 @@
-07 c948784212c9c1364e677f07dac5106b8a91789d ima-ng sha1:177265b65ac5f7b94ea9714d77fc0228216b6889 /sbin/init
-07 1037ba59ce83daee4dbab5b11b5fc15b944fcaa8 ima-ng sha1:d1cb0b94ee037d0241384f5ffabecf2457d1ad3d /lib/ld-linux.so.3
-07 79b92419da00f1004c73e1204a575e14bcace12d ima-ng sha1:d1cb0b94ee037d0241384f5ffabecf2457d1ad3d /lib/ld-linux-armhf.so.3
-07 2e3cd02c622ee5dc6bfee29a1ee6ae781556f621 ima-ng sha1:ad849764d1b9f88a67eab176babbc75c63081f7e /lib/libnih-dbus.so.1
-07 588f016e8ba6af7c8a4b58879fc134e14282b4cd ima-ng sha1:177265b65ac5f7b94ea9714d77fc0228216b6889 /lib/systemd/systemd
-07 593a47af2358162debc149f7f5e12fff339ee7c0 ima-ng sha1:956758752ab35950c69c2ecf5e903d87d4232868 /lib/libnih.so.1
+10 f4a8b81e94371ae7b93dc5c2f3b998a061bca413 ima-ng sha1:da9c30feba0d4a1c1e788d5566cd63ec64279661 /sbin/init
+10 180b2a24ccfe4be8933be900c601b041b708baf6 ima-ng sha1:d1cb0b94ee037d0241384f5ffabecf2457d1ad3d /lib/ld-linux.so.3
+10 6a15b56f5daff78b8ce7b753b9ebc24fb322ab81 ima-ng sha1:d1cb0b94ee037d0241384f5ffabecf2457d1ad3d /lib/ld-linux-armhf.so.3
+10 83a6b3bdc58649cf4438484b626f653963d2984b ima-ng sha1:ad849764d1b9f88a67eab176babbc75c63081f7e /lib/libnih-dbus.so.1
+10 25c5a77b1e4b227731abd8391395f1da71518d39 ima-ng sha1:da9c30feba0d4a1c1e788d5566cd63ec64279661 /lib/systemd/systemd
+10 cf3d8ceded72f1cea97c1703de3556f1a6242feb ima-ng sha1:956758752ab35950c69c2ecf5e903d87d4232868 /lib/libnih.so.1
+10 ea410141bde7027ea9072dacae31f2d6691c6c95 ima-ng sha1:2e197b483e0c1d03cd691e3f0e72011e7083ecdb /home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/app/app.conf

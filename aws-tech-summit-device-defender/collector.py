@@ -20,7 +20,7 @@ import argparse
 from time import sleep
 
 # KG - Adding constants to control location of files and index of PCRs
-BASE_MEASUREMENT_DIR = "/home/pi/git-repo/arc_kg_demo_082018/aws-tech-summit-tpm/"
+BASE_MEASUREMENT_DIR = "/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/"
 RUNTIME_MEASURE_FILE = BASE_MEASUREMENT_DIR + "demoapp/data/runtime_measurements"
 RUNTIME_PCR_FILE = BASE_MEASUREMENT_DIR + "demoapp/data/runtime_pcr"
 RUNTIME_PCR_INDEX = 10
