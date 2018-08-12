@@ -77,7 +77,7 @@ class Collector(object):
     
     # KG - Adding PCR measurement to the metrics
     def pcr_measurement(self, metrics):
-        print ("adding pcr measurement")
+        #print ("adding pcr measurement")
         #KG - Runtime measurement in IMA format
         ima = open(RUNTIME_MEASURE_FILE,'r')
         #KG - Runtime measurements obtained from PCR
@@ -90,14 +90,14 @@ class Collector(object):
 
         i=0
         for line in ima:
-            print (line)
+            #print (line)
             lineTokens = line.split()
             pcr_ima_dictionary ["pcr"+str(RUNTIME_PCR_INDEX)] = lineTokens[1]
             i=i+1
         
         i=0
         for line in tpm:
-            print (line)
+            #print (line)
             lineTokens = line.split()
             pcr_tpm_dictionary ["pcr"+str(i)] = lineTokens[1]
             i=i+1
@@ -148,7 +148,7 @@ if __name__ == '__main__':
             count -= 1
             # setup a loop to collect
             metric = collector.collect_metrics()
-            print (metric.to_json_string(pretty_print=True))
+            # print (metric.to_json_string(pretty_print=True))
 
             if count == 0:
                 break
@@ -161,5 +161,5 @@ if __name__ == '__main__':
         if args.max_list_size:
             metric.max_list_size = int(args.max_list_size)
 
-        print (metric.to_json_string(pretty_print=True))
+        # print (metric.to_json_string(pretty_print=True))
         exit()

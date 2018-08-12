@@ -149,11 +149,20 @@ if __name__ == '__main__':
     metric = None
     while True:
         metric = collector.collect_metrics()
+        jsonMetric = json.loads(metric.to_json_string(pretty_print=False))
+        print ("---------------------------------------------------------------")
+        print ("          Device Defender Metrics Collection Completed         ")
+        print ("---------------------------------------------------------------")
+        print (" Total TCP Connections  : " + str(jsonMetric['metrics']['listening_tcp_ports']['total'])) 
+        print (" Total UDP Connections  : " + str(jsonMetric['metrics']['listening_udp_ports']['total'])) 
+        print (" Device Integrity State : " + str(jsonMetric['metrics']['pcrMeasurementData']['device_integrity']))
+        print ("---------------------------------------------------------------")
         
+
         if args.dry_run:
             print (metric.to_json_string(pretty_print=True))
         else:
-            print (metric.to_json_string(pretty_print=False))
+            #print (metric.to_json_string(pretty_print=True))
             if args.format == "cbor":
                 iot_client.publish(topic, bytearray(metric.to_cbor()))
             else:

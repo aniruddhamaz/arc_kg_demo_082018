@@ -4,6 +4,7 @@ import base64
 import subprocess
 import os
 import tempfile
+from time import sleep
 
 from tpmutils import *
 
@@ -17,7 +18,7 @@ def measureAndUpdateBIOS(files):
 	with open(DATA_DIR + "/bios_measurements", 'w') as biosfile:
 		pcrNum = 0
 		for f in files:
-			
+		
 			fileDigest = getFileDigest(f)
 			fileDigestStr = binascii.hexlify(fileDigest).decode("ascii")
 						
@@ -33,7 +34,8 @@ def measureAndUpdateBIOS(files):
 			proc.wait()
 						
 			currentPCRStr = getPCR(pcrNum)
-			
+			sleep (2)
+			print ("|  " + str(pcrNum) + "     |  " + currentPCRStr + "  |     " + f[f.rfind("/") : ] + " |")	
 			out = "{0:02d} {1:20s} ima-ng sha1:{2:20s} {3}\n".format(pcrNum, currentPCRStr, fileDigestStr, f)
 			biosfile.write(out)	
 			pcrNum = pcrNum + 1	
@@ -48,7 +50,7 @@ def measureAndUpdatePCR(files, pcrNum):
 	tpmPath = TPM_TSS_UTILS_DIR 
 
 	with open(DATA_DIR + "/boot_measurements", 'w') as imafile:
-	
+		
 		for f in files:
 			
 			fileDigest = getFileDigest(f)
@@ -66,14 +68,25 @@ def measureAndUpdatePCR(files, pcrNum):
 			proc.wait()
 						
 			currentPCRStr = getPCR(pcrNum)
-			
+			print ("|  " + str(pcrNum) + "    |  " + currentPCRStr + "  |     " + f[f.rfind("/") : ] + " |")	
 			out = "{0:02d} {1:20s} ima-ng sha1:{2:20s} {3}\n".format(pcrNum, currentPCRStr, fileDigestStr, f)
 			imafile.write(out)		
 		
 		
 # ----------------------------------------------------------------------
 # Perform the measurements		
+print ("")
+print ("-----------------------------------------------------------")
+print ("Performing BIOS Measurements")
+print ("")
+print ("| PCR #  |                  PCR Value                 |     File Name        |")
 measureAndUpdateBIOS (PRE_OS_LOAD_FILES_PI)		
+print ("")
+print ("-----------------------------------------------------------")
+print ("Peforming Kernel files & Critical Application Measurement  ")
+print ("")
+print ("| PCR #  |                  PCR Value                 |     File Name        |")
 measureAndUpdatePCR(MEASUREMENT_FILES, BOOT_PCR)
+print ("All Boot Time & OS Loading Measurements completed          ")
 
 
