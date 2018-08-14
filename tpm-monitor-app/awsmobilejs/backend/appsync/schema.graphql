@@ -1,0 +1,51 @@
+type AllPCRs
+{
+pcrs: [PCRMeasurement]!
+}
+
+type DeviceMeasurement
+{
+metrics: Metrics!
+pcrs: [PCRMeasurement]!
+status: String!
+thingId: ID!
+timestamp: Int
+}
+
+type Metrics
+{
+cpu: String
+memory: String!
+network: String
+}
+
+type Mutation
+{
+updatePCR(thingid: String!,pcrindex: Int!,bootvalue: String!,runtimevalue: String!,status: String! ): PCRMeasurement
+}
+
+type PCRMeasurement
+{
+thingid: String!
+pcrindex: Int!
+bootvalue: String!
+runtimevalue: String!
+status: String!
+}
+
+type Query
+{
+listPCRsFor(thingid: String! ): [PCRMeasurement]
+}
+
+type Subscription
+{
+updatedPCR(thingid: String! ): PCRMeasurement
+}
+
+schema 
+{
+query: Query
+mutation: Mutation
+subscription: Subscription
+}

@@ -1,0 +1,16 @@
+[
+    {
+        "typeName": "Mutation",
+        "fieldName": "updatePCR",
+        "dataSourceName": "PCRTable",
+        "requestMappingTemplate": "{managed-by-awsmobile-cli}:Mutation.updatePCR.request",
+        "responseMappingTemplate": "{managed-by-awsmobile-cli}:Mutation.updatePCR.response"
+    },
+    {
+        "typeName": "Query",
+        "fieldName": "listPCRsFor",
+        "dataSourceName": "PCRTable",
+        "requestMappingTemplate": "{managed-by-awsmobile-cli}:Query.listPCRsFor.request",
+        "responseMappingTemplate": "{managed-by-awsmobile-cli}:Query.listPCRsFor.response"
+    }
+]
