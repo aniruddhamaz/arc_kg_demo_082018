@@ -21,31 +21,22 @@ network: String
 
 type Mutation
 {
-updatePCR(thingid: String!,pcrindex: Int!,bootvalue: String!,runtimevalue: String!,status: String! ): PCRMeasurement
+updatePCR(bootvalue: String!,pcrindex: Int!,runtimevalue: String!,status: String!,thingid: String! ): PCRMeasurement
 }
 
 type PCRMeasurement
 {
-thingid: String!
-pcrindex: Int!
-bootvalue: String!
-runtimevalue: String!
-status: String!
+pcr_index: Int!
+pcr_value: String!
+thing_name: String!
 }
 
 type Query
 {
-listPCRsFor(thingid: String! ): [PCRMeasurement]
+listPCRsFor(thing_name: String! ): [PCRMeasurement]
 }
 
 type Subscription
 {
 updatedPCR(thingid: String! ): PCRMeasurement
-}
-
-schema 
-{
-query: Query
-mutation: Mutation
-subscription: Subscription
 }

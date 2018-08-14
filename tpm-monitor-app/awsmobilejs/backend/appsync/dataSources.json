@@ -6,7 +6,7 @@
             "type": "AMAZON_DYNAMODB",
             "serviceRoleArn": "{managed-by-awsmobile-cli}",
             "dynamodbConfig": {
-                "tableName": "AppSyncCommentTable-MrNCp8H7",
+                "tableName": "AppSyncCommentTable-CdDQVQ4F",
                 "awsRegion": "us-east-1",
                 "useCallerCredentials": false
             }
@@ -17,7 +17,7 @@
             "type": "AMAZON_DYNAMODB",
             "serviceRoleArn": "{managed-by-awsmobile-cli}",
             "dynamodbConfig": {
-                "tableName": "AppSyncEventTable-MrNCp8H7",
+                "tableName": "AppSyncEventTable-CdDQVQ4F",
                 "awsRegion": "us-east-1",
                 "useCallerCredentials": false
             }
@@ -28,7 +28,7 @@
             "type": "AMAZON_DYNAMODB",
             "serviceRoleArn": "{managed-by-awsmobile-cli}",
             "dynamodbConfig": {
-                "tableName": "tpm-monitor-pcr",
+                "tableName": "pcr_measurement",
                 "awsRegion": "us-east-1",
                 "useCallerCredentials": false
             }
@@ -50,7 +50,7 @@
                     "AttributeType": "S"
                 }
             ],
-            "TableName": "AppSyncCommentTable-MrNCp8H7",
+            "TableName": "AppSyncCommentTable-CdDQVQ4F",
             "KeySchema": [
                 {
                     "AttributeName": "eventId",
@@ -92,7 +92,7 @@
                     "AttributeType": "S"
                 }
             ],
-            "TableName": "AppSyncEventTable-MrNCp8H7",
+            "TableName": "AppSyncEventTable-CdDQVQ4F",
             "KeySchema": [
                 {
                     "AttributeName": "id",
@@ -108,22 +108,22 @@
         {
             "AttributeDefinitions": [
                 {
-                    "AttributeName": "pcrindex",
+                    "AttributeName": "pcr_index",
                     "AttributeType": "N"
                 },
                 {
-                    "AttributeName": "thingid",
+                    "AttributeName": "thing_name",
                     "AttributeType": "S"
                 }
             ],
-            "TableName": "tpm-monitor-pcr",
+            "TableName": "pcr_measurement",
             "KeySchema": [
                 {
-                    "AttributeName": "thingid",
+                    "AttributeName": "thing_name",
                     "KeyType": "HASH"
                 },
                 {
-                    "AttributeName": "pcrindex",
+                    "AttributeName": "pcr_index",
                     "KeyType": "RANGE"
                 }
             ],

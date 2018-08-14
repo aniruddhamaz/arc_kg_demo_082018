@@ -11,9 +11,9 @@
     "operation" : "Query",
     "query" : {
         ## Provide a query expression. **
-        "expression": "thingid = :thingid",
+        "expression": "thing_name = :thing_name",
         "expressionValues" : {
-            ":thingid" : $util.dynamodb.toDynamoDBJson($ctx.args.thingid)
+            ":thing_name" : $util.dynamodb.toDynamoDBJson($ctx.args.thing_name)
         }
     }
 }
