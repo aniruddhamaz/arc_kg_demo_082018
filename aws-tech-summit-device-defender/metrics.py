@@ -167,7 +167,7 @@ class Metrics(object):
     def to_cbor(self):
         """Returns a cbor serialized metrics object """
         return cbor.dumps(self._v1_metrics())
-
+        
     def _v1_metrics(self):
         """Format metrics in Device Defender version 1 format"""
         t = self.t
@@ -175,6 +175,8 @@ class Metrics(object):
                   t.version: "1.0"}
         metrics = {}
 
+        metrics ["thing_name"] = self.client_id
+        
         if self.network_stats:
             metrics[t.interface_stats] = self.network_stats
 

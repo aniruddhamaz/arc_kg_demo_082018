@@ -24,13 +24,23 @@ echo ${test}
 ./pcrread -ha ${PCR_OS} -halg ${PCR_ALGO} -ns 
 }
 
+bold=$(tput bold)
+normal=$(tput sgr0)
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+white=$(tput setaf 7)
+clear
+echo -n ${bold}
+echo     "-------------------------------------------------------"
+echo     "| AWS APJC Tech Summit 2018 - Chip to Cloud Security  |"
+echo     "-------------------------------------------------------"
 
-echo "---Starting TPM Server...."
+echo     "Starting TPM Simulation Server...."
 
 TPM_SERVER_PID=`pgrep -o -x tpm_server`
 
 if [ -n "${TPM_SERVER_PID}" ]; then
-	echo "---TPM Server is already running (${TPM_SERVER_PID}) so killing it"
+	echo "TPM Simulation Server is already running (${TPM_SERVER_PID}) so killing it"
 	kill -SIGHUP ${TPM_SERVER_PID}
 	sleep 1
 fi
@@ -41,13 +51,18 @@ cd ${TPM_SW_BASE}/src/
 
 sleep 2
 
-echo "---Powering up the TPM...."
-
+echo -ne 'Powering up the TPM  ===========                         (33%)\r'
+sleep 2
+echo -ne 'Powering up the TPM  =========================           (66%)\r'
+sleep 2
 cd ${TPM_TSS_BASE}/utils/
-./powerup -v
+./powerup
 sleep 1
-./startup -v
+./startup
 
+echo -ne 'Powering up the TPM  ====================================(100%)\r'
+echo -ne '\n'
+echo     'TPM Simulator started and ready for commands'
 
 python3 ${DEMOAPP_DIR}/boot-measure.py 
 

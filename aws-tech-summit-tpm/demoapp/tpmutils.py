@@ -11,7 +11,7 @@ TPM_TSS_UTILS_DIR = TPM_TSS_BASE_DIR + "/utils"
 DEMOAPP_DIR		  = TPM_DIR + "/demoapp"
 DATA_DIR          = DEMOAPP_DIR + "/data"
 
-BOOT_PCR		  = 7
+BOOT_PCR		  = 10
 
 MEASUREMENT_FILES_VM = [
 	"/initrd.img", 
@@ -27,10 +27,24 @@ MEASUREMENT_FILES_PI = [
 	"/lib/ld-linux-armhf.so.3",
 	"/lib/libnih-dbus.so.1",
 	"/lib/systemd/systemd",
-	"/lib/libnih.so.1"
+	"/lib/libnih.so.1",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/app/app.conf"
 ]
 
 MEASUREMENT_FILES = MEASUREMENT_FILES_PI
+
+PRE_OS_LOAD_FILES_PI = [
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/bios",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/bios.conf",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/optionROM",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/optionROM.conf",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/mbr",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/mbr.conf",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/libpowerup.so.1",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/libpowerup.so.2",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/libexecdsk.so",
+	"/home/pi/arc_kg_demo_082018/aws-tech-summit-tpm/demoapp/boot/libsyscore.so"
+]
 
 # ----------------------------------------------------------------------
 # Gets the files SHA-1 digest
