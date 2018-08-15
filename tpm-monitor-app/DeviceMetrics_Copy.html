@@ -47,131 +47,105 @@ class DeviceMetrics extends Component {
 
         return (
             <div>
+                <br/>
+                <div className={`ui container`}>
+                    <Link to="/" className="ui button">Back to Thing Registry</Link>
+                </div>
+                <div className={`ui container raised very padded segment`}>
+                    <div className={`ui clearing basic segment`}>
+                        <h1 className="ui header center floated">Metrics for {deviceMetrics.thing_name}</h1>
+                    </div>
 
-
-<h2 class="ui icon header center aligned yellow">
-  <i class="settings icon"></i>
-  <div class="content">
-    APJC Tech Summit 2018
-    <div class="sub header">AWS IoT Device Defender - Chip to Cloud Security</div>
-  </div>
-</h2>
-
-            
- 				<h4 class="ui horizontal divider header">
-  <i class="tag icon"></i>
-  Device Defender Summary </h4>           
-            
-				<div class="ui four column grid">
-				
-				  <div class="column">
-				    <div class="ui fluid card">
+                    <div className="ui cards">
+                        <div className="card">
                             <div className="content">
                                 <div className="header">
                                     <i className="large blue microchip icon"></i>
                                     Device Status
                                 </div>
                             </div>
-                            <div className="extra content ui large statistic">
+                            <div className="extra content">
                                 <div className="center aligned author">
                                 {deviceMetrics.device_integrity == 'VIOLATION'
                                             ? <i className="massive red frown outline icon"></i>
                                             : <i className="massive green smile icon"></i>
                                 }
-                                </div>
                             </div>
-   					 </div>
-  				</div>
-				
-				  <div class="column">
-				    <div class="ui fluid card">
+                        </div>                            
+                    {/* </div>
+
+                    <div className="ui cards"> */}
+                        <div className="card">
                             <div className="content">
                                 <div className="header">
                                     <i className="large blue wifi icon"></i>
                                     Network Status
                                 </div>
                             </div>
-                                    <div class="extra content ui huge statistic">
+                            <div className="extra content">
+                                <div className="ui statistics">
+                                    <div class="statistic">
                                         <div className="value">
                                         {deviceMetrics.listening_tcp_ports}
                                         </div>
                                         <div className="label">
                                         TCP Ports
                                         </div>
-                                    </div> 
-   					 </div>
-  				</div>
-				
-				  <div class="column">
-				    <div class="ui fluid card">
-                            <div className="content">
-                                <div className="header">
-                                    <i className="large blue wifi icon"></i>
-                                    Network Status
-                                </div>
-                            </div>
-                                    <div class="extra content ui huge statistic">
+                                    </div>
+                                    <div class="statistic">
                                         <div className="value">
                                         {deviceMetrics.listening_udp_ports}
                                         </div>
                                         <div className="label">
                                         UDP Ports
                                         </div>
-                                    </div> 
-   					 </div>
-  				</div>
-				
-				  <div class="column">
-				    <div class="ui fluid card">
-                            <div className="content">
-                                <div className="header">
-                                    <i className="large blue wifi icon"></i>
-                                    Network Status
-                                </div>
-                            </div>
-                                    <div class="extra content ui huge statistic">
+                                    </div>
+                                    <div class="statistic">
                                         <div className="value">
                                         {deviceMetrics.tcp_connections}
                                         </div>
                                         <div className="label">
                                         TCP Connections
                                         </div>
-                                    </div> 
-   					 </div>
-  				</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                            
+                    </div>
 
-				
-				</div>
-				
-				<h4 class="ui horizontal divider header">
-  <i class="tag icon"></i>
-  TPM & Kernel Measurement Details </h4>		
-				
-		
-<table class="ui definition table">
-  <tbody>
-    <tr>
-							<div class="ui massive label">Boot Value Recorded in TPM
-  								<div class="detail">{deviceMetrics.measurement.pcr_runtime_value}</div>
-							</div>
-    </tr>
-    <tr>
-							<div class="ui massive label">Kernel Value Measured at Runtime
-  								<div class="detail">{deviceMetrics.measurement.pcr_runtime_value}</div>
-							</div>
-    </tr>
-    <tr>
-							<div class="ui massive label">Boot Value
-  								<div class="detail">{deviceMetrics.measurement.pcr_runtime_value}</div>
-							</div>
-    </tr>
-  </tbody>
-</table>		
-				
-				
-				
-
-            </div>
+                    <div className="ui cards">
+                        <div className="card">
+                            <div className="content">
+                                <div className="header">
+                                    <i className="large blue wifi icon"></i>
+                                    PCR # {deviceMetrics.measurement.pcrIndex} Data
+                                </div>
+                            </div>
+                            <div className="content">
+                                <div className="ui horizontal statistics">
+                                    <div class="ui tiny statistic">
+                                        <div className="value">
+                                        {deviceMetrics.measurement.pcr_runtime_value}
+                                        </div>
+                                        <div className="label">
+                                        Boot Value
+                                        </div>
+                                    </div>
+                                    <div class="ui tiny statistic">
+                                        <div className="value">
+                                        {deviceMetrics.measurement.kernel_measured_value}
+                                        </div>
+                                        <div className="label">
+                                        Kernel Value
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                            
+                    </div>                    
+                </div>
+           </div>
+        </div>
         );
 
     }
