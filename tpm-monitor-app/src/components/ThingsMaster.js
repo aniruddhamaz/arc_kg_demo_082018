@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { graphql, compose, withApollo } from "react-apollo";
+import { Link } from 'react-router-dom';
+import 'semantic-ui-css/semantic.min.css';
 
 import ListAllThingsQuery from '../queries/ListAllThingsQuery'
 
@@ -9,12 +11,14 @@ class ThingsMaster extends Component {
         things: [],
     }
 
-    renderThingItem = (item) => (
-        <tr key={item.thing_name}>
-            <td>{item.thing_name}</td>
-            <td>{item.thing_arn}</td>
-        </tr>
-        
+    renderThing = (thing) => (
+
+        <Link to={`/thing/metrics/${thing.thing_name}`} className="card green" key={thing.thing_name}>
+            <div className="content">
+                <div className="header">{thing.thing_name}</div>
+            </div>
+        </Link>
+
     );
 
     render() {
@@ -23,20 +27,13 @@ class ThingsMaster extends Component {
 
         return (
             <div>
-                <div>
-                    <table border="1">
-                        <thead>
-                            <tr>
-                                <th>Thing Name</th>
-                                <th>Thing ARN</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {things.map((thing) =>
-                            this.renderThingItem(thing) 
-                        )}
-                        </tbody>
-                    </table>
+                <div className={`ui clearing basic segment`}>
+                    <h1 className="ui header left floated">Registered Things</h1>
+                </div>
+                <div className="ui link cards">
+                    {things.map((thing) =>
+                            this.renderThing(thing) 
+                    )}
                 </div>
             </div>
         );

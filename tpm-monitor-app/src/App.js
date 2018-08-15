@@ -25,11 +25,7 @@ export class Home extends Component {
         </header> */}
 
         <div>
-          <PCRTable />
-          <br></br>
           <ThingsMaster />
-          <br></br>
-          <DeviceMetrics />
         </div>
       </div>
     );
@@ -40,6 +36,7 @@ const App = () => (
   <Router>
     <div>
       <Route exact={true} path="/" component={Home} />
+      <Route path="/thing/metrics/:thingid" component={DeviceMetrics} />
     </div>
   </Router>
 );
