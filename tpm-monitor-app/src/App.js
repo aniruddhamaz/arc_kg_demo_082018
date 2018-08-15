@@ -35,7 +35,7 @@ export class Home extends Component {
 const App = () => (
   <Router>
     <div>
-      <Route exact={true} path="/" component={Home} />
+      <Route exact={true} path="/" component={DeviceMetrics} />
       <Route path="/thing/metrics/:thingid" component={DeviceMetrics} />
     </div>
   </Router>

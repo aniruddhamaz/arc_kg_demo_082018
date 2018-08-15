@@ -3,6 +3,7 @@ import { css } from 'react-emotion';
 import { graphql, compose, withApollo } from "react-apollo";
 import { Link } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
+import techSummitLogo from '../TechSummitMacau_white_Logo.png';
 
 import { ClipLoader } from 'react-spinners';
 
@@ -49,13 +50,15 @@ class DeviceMetrics extends Component {
             <div>
 
 
-<h2 class="ui icon header center aligned yellow">
-  <i class="settings icon"></i>
+<div className="ui segment">
+    <img class="ui centered small image" src={techSummitLogo} />
+</div>
+<h2 class="ui icon header center aligned blue">
   <div class="content">
     APJC Tech Summit 2018
-    <div class="sub header">AWS IoT Device Defender - Chip to Cloud Security</div>
   </div>
 </h2>
+<h2 className="ui header center aligned">AWS IoT Device Defender - Chip to Cloud Security</h2>
 
             
  				<h4 class="ui horizontal divider header">
@@ -144,33 +147,36 @@ class DeviceMetrics extends Component {
 				</div>
 				
 				<h4 class="ui horizontal divider header">
-  <i class="tag icon"></i>
-  TPM & Kernel Measurement Details </h4>		
-				
-		
-<table class="ui definition table">
-  <tbody>
-    <tr>
-							<div class="ui massive label">Boot Value Recorded in TPM
-  								<div class="detail">{deviceMetrics.measurement.pcr_runtime_value}</div>
-							</div>
-    </tr>
-    <tr>
-							<div class="ui massive label">Kernel Value Measured at Runtime
-  								<div class="detail">{deviceMetrics.measurement.pcr_runtime_value}</div>
-							</div>
-    </tr>
-    <tr>
-							<div class="ui massive label">Boot Value
-  								<div class="detail">{deviceMetrics.measurement.pcr_runtime_value}</div>
-							</div>
-    </tr>
-  </tbody>
-</table>		
-				
-				
-				
+                    <i class="tag icon"></i>
+                    TPM & Kernel Measurement Details 
+                </h4>		
 
+
+                <div className="ui fluid card">
+                    <div className="content">
+                        <table className="ui orange table">
+                            <thead>
+                                <tr>
+                                    <th>PCR #</th>
+                                    <th>Measurement Type</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{deviceMetrics.measurement.pcrIndex}</td>
+                                    <td>Boot</td>
+                                    <td>{deviceMetrics.measurement.pcr_runtime_value}</td>
+                                </tr>
+                                <tr>
+                                    <td>{deviceMetrics.measurement.pcrIndex}</td>
+                                    <td>Runtime</td>
+                                    <td>{deviceMetrics.measurement.kernel_measured_value}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         );
 
