@@ -16,12 +16,19 @@ class DeviceMetrics extends Component {
 
     static defaultProps = {
         deviceMetrics: {},
+        data: {},
         interval: {},
         loading: true
     }
 
     componentDidMount() {
-        this.interval = setInterval(() => this.setState({ time: Date.now() }), 5000);
+        this.interval = setInterval(() => {
+            this.setState( () => {
+                console.log("Refreshing........"); 
+                this.props.data.refetch();
+                //return { time: Date.now() }
+            });
+        }, 30000);
     }
 
     componentWillUnmount() {
@@ -31,6 +38,8 @@ class DeviceMetrics extends Component {
     render() {
 
         const { deviceMetrics } = this.props;
+
+        console.log("========== Rendering ......");
 
         return (
             <div>
@@ -79,6 +88,7 @@ export default withApollo(compose(
             },
             props: props => ({
                 deviceMetrics: props.data.getDeviceMetrics,
+                data: props.data
             })
         }
     )
