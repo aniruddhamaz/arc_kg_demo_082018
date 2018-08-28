@@ -4,6 +4,7 @@ import { graphql, compose, withApollo } from "react-apollo";
 import { Link } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 import techSummitLogo from '../TechSummitMacau_white_Logo.png';
+import awsIotLogo from '../aws-iot-logo.png';
 
 import { ClipLoader } from 'react-spinners';
 
@@ -51,14 +52,10 @@ class DeviceMetrics extends Component {
 
 
 <div className="ui segment">
-    <img class="ui centered small image" src={techSummitLogo} />
+    <img class="ui centered small image" src={awsIotLogo} />
 </div>
-<h2 class="ui icon header center aligned blue">
-  <div class="content">
-    APJC Tech Summit 2018
-  </div>
-</h2>
-<h2 className="ui header center aligned">AWS IoT Device Defender - Chip to Cloud Security</h2>
+
+<h2 className="ui header center aligned">AWS IoT Device Defender Demo - Chip to Cloud Security</h2>
 
             
  				<h4 class="ui horizontal divider header">
