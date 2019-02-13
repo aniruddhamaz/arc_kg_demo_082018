@@ -17,7 +17,8 @@ https://kg-amazon.signin.aws.amazon.com/console
 ## Issues faced
 
 1. [Friday, February 8] Current code status is not correct. The schema definition seems to be out of sync. Tried updating the schema and doing a pull. But this seems to update the backend schema, resolvers etc. Had to delete the awsmobile/.awsmobile/#current-backend-info folder, edit the backend/schema.graphql and resolvers.json files and do a push. Sometimes the console does not show the updated changes and needs to be refreshed after a push operation. To be sure, try closing and opening a new console.
-2.  
+
+```graphql
     type AllPCRs
     {
     pcrs: [PCRMeasurement]!
@@ -64,6 +65,6 @@ https://kg-amazon.signin.aws.amazon.com/console
     updatedPCR(thingid: String! ): PCRMeasurement
     } 
 3. Error loading the main page from DeviceMetrics.js. The render() method would throw an error when trying to access the pcrIndex property. This was due to its parent object not being loaded. Turned out that the AppSync query was still in-flight. This is a timing issue between the query being fired and render method being called. This was resolved by https://github.com/aniruddhamaz/arc_kg_demo_082018/commit/dac2f39e02daa9088db30770ae2a8022068e4875#diff-2396a21c272dab2b820aeeac50a9de28
-4. 
+
 
 
