@@ -14,6 +14,8 @@ import PCRTable from './components/PCRTable';
 import ThingsMaster from './components/ThingsMaster';
 import DeviceMetrics from './components/DeviceMetrics';
 
+require('dotenv').config();
+
 export class Home extends Component {
   render() {
     return (
@@ -36,7 +38,7 @@ const App = () => (
   <Router>
     <div>
       <Route exact={true} path="/" component={DeviceMetrics} />
-      <Route path="/thing/metrics/:thingid" component={DeviceMetrics} />
+      {/* <Route path="/thing/metrics/:thingid" component={DeviceMetrics} /> */}
     </div>
   </Router>
 );
@@ -58,12 +60,16 @@ const client = new AWSAppSyncClient({
       */
 
       // Amazon Cognito Federated Identities using AWS Amplify
-      credentials: () => Auth.currentCredentials(),
+      //credentials: () => Auth.currentCredentials(),
 
       // Amazon Cognito user pools using AWS Amplify
       // type: AUTH_TYPE.AMAZON_COGNITO_USER_POOLS,
       // jwtToken: async () => (await Auth.currentSession()).getIdToken().getJwtToken(),
+
   },
+  options: {
+    connectToDevTools: true
+  }
 });
 
 

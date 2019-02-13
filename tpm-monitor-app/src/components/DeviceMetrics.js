@@ -16,7 +16,7 @@ const override = css`
     margin: 0 auto;
     border-color: red;
 `;
- 
+
 class DeviceMetrics extends Component {
 
     static defaultProps = {
@@ -42,28 +42,29 @@ class DeviceMetrics extends Component {
 
     render() {
 
+        
         const { deviceMetrics } = this.props;
 
+        if (this.props.data.loading) {
+            return (<div></div>);
+        }
         console.log("========== Rendering ......");
 
         return (
             <div>
-
-
-<div className="ui segment">
-    <img class="ui centered small image" src={techSummitLogo} />
-</div>
-<h2 class="ui icon header center aligned blue">
-  <div class="content">
-    APJC Tech Summit 2018
-  </div>
-</h2>
-<h2 className="ui header center aligned">AWS IoT Device Defender - Chip to Cloud Security</h2>
-
+                <div className="ui segment">
+                    <img class="ui centered small image" src={techSummitLogo} />
+                </div>
+                <h2 class="ui icon header center aligned blue">
+                    <div class="content">
+                        APJC Tech Summit 2018
+                    </div>
+                </h2>
+                <h2 className="ui header center aligned">AWS IoT Device Defender - Chip to Cloud Security</h2>
             
  				<h4 class="ui horizontal divider header">
-  <i class="tag icon"></i>
-  Device Defender Summary </h4>           
+                  <i class="tag icon"></i>Device Defender Summary 
+                </h4>           
             
 				<div class="ui four column grid">
 				
@@ -188,8 +189,11 @@ export default withApollo(compose(
         DeviceMetricsQuery, 
         {
             options: ({ match: {params: {thingid}}}) => ({
-                fetchPolicy: 'network-only',
-                variables: { thingid }
+                fetchPolicy: "network-only",
+                errorPolicy: "all",
+                fetchResults: true,
+                variables: { thingid : "MyRaspberryPi" },
+                notifyOnNetworkStatusChange: true
             }),
             props: props => ({
                 deviceMetrics: props.data.getDeviceMetrics,

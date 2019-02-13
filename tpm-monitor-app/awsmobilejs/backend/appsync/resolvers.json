@@ -1,9 +1,18 @@
 [
     {
         "typeName": "Query",
+        "fieldName": "getDeviceMetrics",
+        "dataSourceName": "DefenderMetrics_NEW",
+        "requestMappingTemplate": "{managed-by-awsmobile-cli}:Query.getDeviceMetrics.request",
+        "responseMappingTemplate": "{managed-by-awsmobile-cli}:Query.getDeviceMetrics.response",
+        "kind": "UNIT"
+    },
+    {
+        "typeName": "Query",
         "fieldName": "listPCRsFor",
-        "dataSourceName": "PCRTable",
+        "dataSourceName": "ThingMaster",
         "requestMappingTemplate": "{managed-by-awsmobile-cli}:Query.listPCRsFor.request",
-        "responseMappingTemplate": "{managed-by-awsmobile-cli}:Query.listPCRsFor.response"
+        "responseMappingTemplate": "{managed-by-awsmobile-cli}:Query.listPCRsFor.response",
+        "kind": "UNIT"
     }
 ]
