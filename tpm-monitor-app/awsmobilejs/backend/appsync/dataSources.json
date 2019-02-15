@@ -2,7 +2,7 @@
     "dataSources": [
         {
             "name": "AppSyncCommentTable",
-            "description": null,
+            "description": "First data source created with the console.",
             "type": "AMAZON_DYNAMODB",
             "serviceRoleArn": "{managed-by-awsmobile-cli}",
             "dynamodbConfig": {
@@ -23,12 +23,34 @@
             }
         },
         {
-            "name": "PCRTable",
+            "name": "DefenderMetrics_NEW",
             "description": "Data source created by the console.",
             "type": "AMAZON_DYNAMODB",
             "serviceRoleArn": "{managed-by-awsmobile-cli}",
             "dynamodbConfig": {
+                "tableName": "defender_metrics",
+                "awsRegion": "us-east-1",
+                "useCallerCredentials": false
+            }
+        },
+        {
+            "name": "PCRTable",
+            "description": "First data source created with the console.",
+            "type": "AMAZON_DYNAMODB",
+            "serviceRoleArn": "{managed-by-awsmobile-cli}",
+            "dynamodbConfig": {
                 "tableName": "pcr_measurement",
+                "awsRegion": "us-east-1",
+                "useCallerCredentials": false
+            }
+        },
+        {
+            "name": "ThingMaster",
+            "description": "Data source created by the console.",
+            "type": "AMAZON_DYNAMODB",
+            "serviceRoleArn": "{managed-by-awsmobile-cli}",
+            "dynamodbConfig": {
+                "tableName": "thing_master",
                 "awsRegion": "us-east-1",
                 "useCallerCredentials": false
             }
@@ -108,6 +130,56 @@
         {
             "AttributeDefinitions": [
                 {
+                    "AttributeName": "id",
+                    "AttributeType": "N"
+                },
+                {
+                    "AttributeName": "thing_name",
+                    "AttributeType": "S"
+                }
+            ],
+            "TableName": "defender_metrics",
+            "KeySchema": [
+                {
+                    "AttributeName": "id",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "thing_name",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "ProvisionedThroughput": {
+                "ReadCapacityUnits": 5,
+                "WriteCapacityUnits": 5
+            },
+            "GlobalSecondaryIndexes": [
+                {
+                    "IndexName": "thing_name-id-index",
+                    "KeySchema": [
+                        {
+                            "AttributeName": "thing_name",
+                            "KeyType": "HASH"
+                        },
+                        {
+                            "AttributeName": "id",
+                            "KeyType": "RANGE"
+                        }
+                    ],
+                    "Projection": {
+                        "ProjectionType": "ALL"
+                    },
+                    "ProvisionedThroughput": {
+                        "ReadCapacityUnits": 5,
+                        "WriteCapacityUnits": 5
+                    }
+                }
+            ],
+            "Region": "us-east-1"
+        },
+        {
+            "AttributeDefinitions": [
+                {
                     "AttributeName": "pcr_index",
                     "AttributeType": "N"
                 },
@@ -125,6 +197,26 @@
                 {
                     "AttributeName": "pcr_index",
                     "KeyType": "RANGE"
+                }
+            ],
+            "ProvisionedThroughput": {
+                "ReadCapacityUnits": 5,
+                "WriteCapacityUnits": 5
+            },
+            "Region": "us-east-1"
+        },
+        {
+            "AttributeDefinitions": [
+                {
+                    "AttributeName": "thing_name",
+                    "AttributeType": "S"
+                }
+            ],
+            "TableName": "thing_master",
+            "KeySchema": [
+                {
+                    "AttributeName": "thing_name",
+                    "KeyType": "HASH"
                 }
             ],
             "ProvisionedThroughput": {

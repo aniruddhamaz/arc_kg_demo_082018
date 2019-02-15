@@ -5,11 +5,13 @@ pcrs: [PCRMeasurement]!
 
 type DeviceMeasurement
 {
-metrics: Metrics!
-pcrs: [PCRMeasurement]!
-status: String!
-thingId: ID!
-timestamp: Int
+id: ID!
+thing_name: String!
+device_integrity: String
+listening_tcp_ports: Int
+listening_udp_ports: Int
+tcp_connections: Int
+measurement: PCRMeasurement
 }
 
 type Metrics
@@ -26,14 +28,15 @@ updatePCR(bootvalue: String!,pcrindex: Int!,runtimevalue: String!,status: String
 
 type PCRMeasurement
 {
-pcr_index: Int!
-pcr_value: String!
-thing_name: String!
+pcrIndex: Int!
+kernel_measured_value: String!
+pcr_runtime_value: String!
 }
 
 type Query
 {
 listPCRsFor(thing_name: String! ): [PCRMeasurement]
+getDeviceMetrics(thing_name: String! ): DeviceMeasurement
 }
 
 type Subscription
