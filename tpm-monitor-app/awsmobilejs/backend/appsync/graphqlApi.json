@@ -1,8 +1,0 @@
-{
-    "name": "tpm-monitor-app",
-    "authenticationType": "API_KEY",
-    "logConfig": {
-        "fieldLogLevel": "ALL",
-        "cloudWatchLogsRoleArn": "arn:aws:iam::474349013801:role/service-role/appsync-graphqlapi-logs-us-east-1"
-    }
-}
